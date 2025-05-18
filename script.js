@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded сработал'); // Проверка загрузки DOM
+    console.log('DOMContentLoaded сработал (мобильная версия)');
 
     const categoryHeaders = document.querySelectorAll('.expandable-header');
     console.log('Найдено заголовков категорий:', categoryHeaders.length);
 
     categoryHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            console.log('Клик по заголовку:', this.textContent); // Проверка клика по заголовку
+        header.addEventListener('touchstart', function() { // Изменили на touchstart
+            console.log('Касание заголовка:', this.textContent);
             const stylesList = this.nextElementSibling;
             console.log('Следующий элемент после заголовка:', stylesList);
             if (stylesList && stylesList.classList.contains('styles')) {
@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Найдено раскрываемых элементов:', expandableItems.length);
 
     expandableItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-            console.log('Клик по раскрываемому элементу:', this.textContent); // Проверка клика по элементу
+        item.addEventListener('touchstart', function(event) { // Изменили на touchstart
+            console.log('Касание раскрываемого элемента:', this.textContent);
             const subStyles = this.querySelector('.sub-styles');
             console.log('Найденный подстиль:', subStyles);
             if (subStyles) {
