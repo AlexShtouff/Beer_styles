@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const subStyles = this.querySelector('.sub-styles');
             if (subStyles) {
                 subStyles.style.display = subStyles.style.display === 'none' ? 'block' : 'none';
-                event.stopPropagation(); // Предотвращаем всплытие события до родительского элемента списка
+                event.stopPropagation(); // Предотвращаем всплытие события
             }
         });
     });
