@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     categoryHeaders.forEach(header => {
         header.addEventListener('click', function() {
             const stylesList = this.nextElementSibling;
-            stylesList.style.display = stylesList.style.display === 'none' ? 'block' : 'none';
+            if (stylesList && stylesList.classList.contains('styles')) {
+                stylesList.style.display = stylesList.style.display === 'none' ? 'block' : 'none';
+            }
         });
     });
 
@@ -14,15 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const subStyles = this.querySelector('.sub-styles');
             if (subStyles) {
                 subStyles.style.display = subStyles.style.display === 'none' ? 'block' : 'none';
-                event.stopPropagation(); // Предотвращаем всплытие события до заголовка категории
+                event.stopPropagation(); // Предотвращаем всплытие события до родительского элемента списка
             }
         });
     });
 
-    // По умолчанию раскрываем первые уровни "Эли" и "Лагеры"
-    document.querySelectorAll('.category > ul.styles').forEach(ul => {
+    // Изначально раскрываем списки первого уровня (Эли и Лагеры)
+    document.querySelectorAll('.category > .styles').forEach(ul => {
         ul.style.display = 'block';
     });
 });
-
-
