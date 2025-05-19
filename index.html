@@ -1,30 +1,82 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Категории стилей</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Иерархия стилей пива</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
     <h1>Стили пива</h1>
 
-    <div class="category">
-      <div class="expandable-header">Эли</div>
-      <ul class="styles">
-        <li class="expandable-item">IPA
-          <ul class="sub-styles">
-            <li>West Coast IPA</li>
-            <li>New England IPA</li>
-          </ul>
-        </li>
-        <li class="expandable-item">Pale Ale</li>
-      </ul>
-    </div>
+    <ul class="beer-tree">
+      <li class="expandable-item">Эль
+        <ul class="sub-styles">
+          <li class="expandable-item">Pale Ale
+            <ul class="sub-styles">
+              <li>American Pale Ale</li>
+              <li>English Pale Ale</li>
+            </ul>
+          </li>
+          <li class="expandable-item">IPA
+            <ul class="sub-styles">
+              <li>West Coast IPA</li>
+              <li>New England IPA (NEIPA)</li>
+              <li>Double IPA</li>
+              <li>Session IPA</li>
+            </ul>
+          </li>
+          <li class="expandable-item">Brown Ale
+            <ul class="sub-styles">
+              <li>English Brown</li>
+              <li>American Brown</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
 
-    <div class="category">
-      <div class="expandable-header">Лагеры</div>
-      <ul class="styles">
-        <li class="expandable-item">Pilsner</li
+      <li class="expandable-item">Лагер
+        <ul class="sub-styles">
+          <li class="expandable-item">Pilsner
+            <ul class="sub-styles">
+              <li>German Pils</li>
+              <li>Czech Pilsner</li>
+              <li>American Pilsner</li>
+            </ul>
+          </li>
+          <li>Helles</li>
+          <li>Dunkel</li>
+          <li>Bock</li>
+        </ul>
+      </li>
+
+      <li class="expandable-item">Пшеничное
+        <ul class="sub-styles">
+          <li>Hefeweizen</li>
+          <li>Witbier</li>
+          <li>American Wheat</li>
+        </ul>
+      </li>
+
+      <li class="expandable-item">Кислое
+        <ul class="sub-styles">
+          <li>Berliner Weisse</li>
+          <li>Gose</li>
+          <li>Lambic</li>
+          <li>Flanders Red Ale</li>
+        </ul>
+      </li>
+
+      <li class="expandable-item">Специальное / Экспериментальное
+        <ul class="sub-styles">
+          <li>Spiced Beer</li>
+          <li>Fruit Beer</li>
+          <li>Smoked Beer</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
