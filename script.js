@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Состояние элемента (open):', element.classList.contains('open'));
     }
 
-    // Обработка заголовков категорий
+    // Заголовки категорий
     document.querySelectorAll('.expandable-header').forEach(header => {
         header.addEventListener('pointerdown', () => {
             const stylesList = header.nextElementSibling;
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Обработка вложенных стилей
+    // Подстили
     document.querySelectorAll('.expandable-item').forEach(item => {
         item.addEventListener('pointerdown', (event) => {
             const subStyles = item.querySelector('.sub-styles');
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Изначально раскрываем все списки первого уровня
+    // Раскрываем основные категории по умолчанию
     document.querySelectorAll('.category > .styles').forEach(ul => {
         ul.classList.add('open');
         console.log('Изначально раскрыт список:', ul);
