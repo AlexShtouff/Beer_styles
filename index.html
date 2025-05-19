@@ -1,160 +1,245 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Иерархия стилей пива</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Beer Style Hierarchy</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      color: #333;
+    }
+
+    ul.tree, ul.tree ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .expandable {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .expandable:hover {
+      background: #eee;
+      border-radius: 4px;
+    }
+
+    .arrow {
+      margin-right: 6px;
+      font-size: 0.8em;
+      transition: transform 0.3s ease;
+    }
+
+    .expandable.open .arrow {
+      transform: rotate(90deg);
+    }
+
+    li {
+      margin: 4px 0;
+      line-height: 1.4;
+    }
+
+    ul.tree ul {
+      padding-left: 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    ul.tree ul.opened {
+      max-height: 1000px;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <h1>Иерархия стилей пива</h1>
-  <ul class="beer-tree">
-    <li class="expandable-item">Пиво <span class="arrow">↓</span>
-      <ul class="sub-styles open">
-        <li class="expandable-item">Эли (Верховое брожение) <span class="arrow">→</span>
-          <ul class="sub-styles">
-            <li class="expandable-item">Светлые Эли <span class="arrow">→</span>
-              <ul class="sub-styles">
-                <li>Блонд Эль</li>
-                <li>Золотой Эль</li>
-                <li class="expandable-item">Индийский Пэйл Эль (IPA) <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Американский IPA</li>
-                    <li>Английский IPA</li>
-                    <li>Двойной IPA (DIPA)</li>
-                    <li>Сессионный IPA</li>
-                  </ul>
-                </li>
-                <li class="expandable-item">Пэйл Эль <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Американский Пэйл Эль (APA)</li>
-                    <li>Английский Пэйл Эль</li>
-                  </ul>
-                </li>
-                <li class="expandable-item">Бельгийские Светлые Эли <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Бельгийский Блонд Эль</li>
-                    <li>Бельгийский Золотой Крепкий Эль</li>
-                  </ul>
-                </li>
-                <li>Кельш</li>
-              </ul>
-            </li>
-            <li class="expandable-item">Темные Эли <span class="arrow">→</span>
-              <ul class="sub-styles">
-                <li class="expandable-item">Коричневый Эль <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Американский Коричневый Эль</li>
-                    <li>Английский Коричневый Эль</li>
-                  </ul>
-                </li>
-                <li class="expandable-item">Портер <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Английский Портер</li>
-                    <li>Американский Портер</li>
-                    <li>Балтийский Портер (хотя исторически имеет лагерные корни)</li>
-                  </ul>
-                </li>
-                <li class="expandable-item">Стаут <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Сухой Стаут (Ирландский Стаут)</li>
-                    <li>Молочный Стаут (Сладкий Стаут)</li>
-                    <li>Овсяный Стаут</li>
-                    <li>Имперский Стаут</li>
-                  </ul>
-                </li>
-                <li class="expandable-item">Шотландский Эль <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Легкий Шотландский Эль</li>
-                    <li>Крепкий Шотландский Эль (Wee Heavy)</li>
-                  </ul>
-                </li>
-                <li>Старые Эли (Old Ales)</li>
-              </ul>
-            </li>
-            <li class="expandable-item">Пшеничные Эли <span class="arrow">→</span>
-              <ul class="sub-styles">
-                <li class="expandable-item">Вайцен (Weizen - немецкое пшеничное) <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Хефевайцен (Hefeweizen - дрожжевое)</li>
-                    <li>Кристаллвайцен (Kristallweizen - фильтрованное)</li>
-                  </ul>
-                </li>
-                <li>Витбир (Witbier - бельгийское пшеничное)</li>
-                <li>Вайсбирбок (Weizenbock - крепкое пшеничное)</li>
-                <li>Американский Пшеничный Эль</li>
-              </ul>
-            </li>
-            <li class="expandable-item">Бельгийские Эли (кроме светлых) <span class="arrow">→</span>
-              <ul class="sub-styles">
-                <li>Дуббель (Dubbel)</li>
-                <li>Трипель (Tripel)</li>
-                <li>Квадрюпель (Quadrupel)</li>
-                <li>Сезон (Saison)</li>
-                <li>Фландрийский Красный Эль</li>
-              </ul>
-            </li>
-            <li class="expandable-item">Кислые Эли <span class="arrow">→</span>
-              <ul class="sub-styles">
-                <li>Берлинер Вайссе (Berliner Weisse)</li>
-                <li>Гозе (Gose)</li>
-                <li class="expandable-item">Ламбик <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Некупажированный Ламбик (Unblended Lambic)</li>
-                    <li>Гёз (Gueuze)</li>
-                    <li>Крик (Kriek - с вишней)</li>
-                    <li>Фрамбуаз (Framboise - с малиной)</li>
-                  </ul>
-                </li>
-                <li>Фландрийский Коричневый Эль (Oud Bruin)</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="expandable-item">Лагеры (Низовое брожение) <span class="arrow">→</span>
-          <ul class="sub-styles">
-            <li class="expandable-item">Светлые Лагеры <span class="arrow">→</span>
-              <ul class="sub-styles">
-                <li class="expandable-item">Пилснер (Pilsner) <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Немецкий Пилснер</li>
-                    <li>Чешский Пилснер</li>
-                    <li>Американский Пилснер</li>
-                  </ul>
-                </li>
-                <li>Хеллес (Helles)</li>
-                <li>Светлый Евролагер (Pale Lager)</li>
-                <li>Американский Лайт Лагер (American Light Lager)</li>
-                <li>Мэрцен/Октоберфест (Märzen/Oktoberfest)</li>
-              </ul>
-            </li>
-            <li class="expandable-item">Темные Лагеры <span class="arrow">→</span>
-              <ul class="sub-styles">
-                <li>Дункель (Dunkel)</li>
-                <li>Шварцбир (Schwarzbier)</li>
-                <li class="expandable-item">Бок (Bock) <span class="arrow">→</span>
-                  <ul class="sub-styles">
-                    <li>Традиционный Бок</li>
-                    <li>Доппельбок (Doppelbock)</li>
-                    <li>Тройной Бок (Tripelbock)</li>
-                    <li>Айсбок (Eisbock)</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="expandable-item">Янтарные Лагеры <span class="arrow">→</span>
-              <ul class="sub-styles">
-                <li>Венский Лагер (Vienna Lager)</li>
-                <li>Амбер Лагер (American Amber Lager)</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
-<script src="script.js"></script>
+
+<h1>🍺 Beer Style Hierarchy</h1>
+
+<ul class="tree">
+  <li>
+    <span class="expandable"><span class="arrow">▶</span>Beer</span>
+    <ul>
+      <li>
+        <span class="expandable"><span class="arrow">▶</span>Ales (Top-fermented)</span>
+        <ul>
+          <li>
+            <span class="expandable"><span class="arrow">▶</span>Pale Ales</span>
+            <ul>
+              <li>Blond Ale</li>
+              <li>Golden Ale</li>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>India Pale Ale (IPA)</span>
+                <ul>
+                  <li>American IPA</li>
+                  <li>English IPA</li>
+                  <li>Double IPA (DIPA)</li>
+                  <li>Session IPA</li>
+                </ul>
+              </li>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Pale Ale</span>
+                <ul>
+                  <li>American Pale Ale (APA)</li>
+                  <li>English Pale Ale</li>
+                </ul>
+              </li>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Belgian Pale Ales</span>
+                <ul>
+                  <li>Belgian Blond Ale</li>
+                  <li>Belgian Golden Strong Ale</li>
+                </ul>
+              </li>
+              <li>Kölsch</li>
+            </ul>
+          </li>
+          <li>
+            <span class="expandable"><span class="arrow">▶</span>Dark Ales</span>
+            <ul>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Brown Ale</span>
+                <ul>
+                  <li>American Brown Ale</li>
+                  <li>English Brown Ale</li>
+                </ul>
+              </li>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Porter</span>
+                <ul>
+                  <li>English Porter</li>
+                  <li>American Porter</li>
+                  <li>Baltic Porter</li>
+                </ul>
+              </li>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Stout</span>
+                <ul>
+                  <li>Dry Stout (Irish Stout)</li>
+                  <li>Milk Stout (Sweet Stout)</li>
+                  <li>Oatmeal Stout</li>
+                  <li>Imperial Stout</li>
+                </ul>
+              </li>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Scottish Ale</span>
+                <ul>
+                  <li>Light Scottish Ale</li>
+                  <li>Strong Scottish Ale (Wee Heavy)</li>
+                </ul>
+              </li>
+              <li>Old Ale</li>
+            </ul>
+          </li>
+          <li>
+            <span class="expandable"><span class="arrow">▶</span>Wheat Ales</span>
+            <ul>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Weizen (German Wheat)</span>
+                <ul>
+                  <li>Hefeweizen</li>
+                  <li>Kristallweizen</li>
+                </ul>
+              </li>
+              <li>Witbier (Belgian Wheat)</li>
+              <li>Weizenbock</li>
+              <li>American Wheat Ale</li>
+            </ul>
+          </li>
+          <li>
+            <span class="expandable"><span class="arrow">▶</span>Belgian Ales</span>
+            <ul>
+              <li>Dubbel</li>
+              <li>Tripel</li>
+              <li>Quadrupel</li>
+              <li>Saison</li>
+              <li>Flanders Red Ale</li>
+            </ul>
+          </li>
+          <li>
+            <span class="expandable"><span class="arrow">▶</span>Wild & Sour Ales</span>
+            <ul>
+              <li>Berliner Weisse</li>
+              <li>Gose</li>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Lambic</span>
+                <ul>
+                  <li>Unblended Lambic</li>
+                  <li>Gueuze</li>
+                  <li>Kriek (Cherry)</li>
+                  <li>Framboise (Raspberry)</li>
+                </ul>
+              </li>
+              <li>Flanders Brown Ale (Oud Bruin)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="expandable"><span class="arrow">▶</span>Lagers (Bottom-fermented)</span>
+        <ul>
+          <li>
+            <span class="expandable"><span class="arrow">▶</span>Pale Lagers</span>
+            <ul>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Pilsner</span>
+                <ul>
+                  <li>German Pilsner</li>
+                  <li>Czech Pilsner</li>
+                  <li>American Pilsner</li>
+                </ul>
+              </li>
+              <li>Helles</li>
+              <li>Pale Lager</li>
+              <li>American Light Lager</li>
+              <li>Märzen / Oktoberfest</li>
+            </ul>
+          </li>
+          <li>
+            <span class="expandable"><span class="arrow">▶</span>Dark Lagers</span>
+            <ul>
+              <li>Dunkel</li>
+              <li>Schwarzbier</li>
+              <li>
+                <span class="expandable"><span class="arrow">▶</span>Bock</span>
+                <ul>
+                  <li>Traditional Bock</li>
+                  <li>Doppelbock</li>
+                  <li>Tripelbock</li>
+                  <li>Eisbock</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="expandable"><span class="arrow">▶</span>Amber Lagers</span>
+            <ul>
+              <li>Vienna Lager</li>
+              <li>American Amber Lager</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<script>
+  document.querySelectorAll('.expandable').forEach(el => {
+    el.addEventListener('click', () => {
+      el.classList.toggle('open');
+      const nextUl = el.nextElementSibling;
+      if (nextUl && nextUl.tagName === 'UL') {
+        nextUl.classList.toggle('opened');
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
