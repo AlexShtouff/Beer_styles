@@ -1,12 +1,160 @@
-<li class="expandable-item">Эль <span class="arrow">→</span>
-  <ul class="sub-styles">
-    <li class="expandable-item">IPA <span class="arrow">→</span>
-      <ul class="sub-styles">
-        <li>New England IPA</li>
-        <li>West Coast IPA</li>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Иерархия стилей пива</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Иерархия стилей пива</h1>
+  <ul class="beer-tree">
+    <li class="expandable-item">Пиво <span class="arrow">↓</span>
+      <ul class="sub-styles open">
+        <li class="expandable-item">Эли (Верховое брожение) <span class="arrow">→</span>
+          <ul class="sub-styles">
+            <li class="expandable-item">Светлые Эли <span class="arrow">→</span>
+              <ul class="sub-styles">
+                <li>Блонд Эль</li>
+                <li>Золотой Эль</li>
+                <li class="expandable-item">Индийский Пэйл Эль (IPA) <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Американский IPA</li>
+                    <li>Английский IPA</li>
+                    <li>Двойной IPA (DIPA)</li>
+                    <li>Сессионный IPA</li>
+                  </ul>
+                </li>
+                <li class="expandable-item">Пэйл Эль <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Американский Пэйл Эль (APA)</li>
+                    <li>Английский Пэйл Эль</li>
+                  </ul>
+                </li>
+                <li class="expandable-item">Бельгийские Светлые Эли <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Бельгийский Блонд Эль</li>
+                    <li>Бельгийский Золотой Крепкий Эль</li>
+                  </ul>
+                </li>
+                <li>Кельш</li>
+              </ul>
+            </li>
+            <li class="expandable-item">Темные Эли <span class="arrow">→</span>
+              <ul class="sub-styles">
+                <li class="expandable-item">Коричневый Эль <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Американский Коричневый Эль</li>
+                    <li>Английский Коричневый Эль</li>
+                  </ul>
+                </li>
+                <li class="expandable-item">Портер <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Английский Портер</li>
+                    <li>Американский Портер</li>
+                    <li>Балтийский Портер (хотя исторически имеет лагерные корни)</li>
+                  </ul>
+                </li>
+                <li class="expandable-item">Стаут <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Сухой Стаут (Ирландский Стаут)</li>
+                    <li>Молочный Стаут (Сладкий Стаут)</li>
+                    <li>Овсяный Стаут</li>
+                    <li>Имперский Стаут</li>
+                  </ul>
+                </li>
+                <li class="expandable-item">Шотландский Эль <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Легкий Шотландский Эль</li>
+                    <li>Крепкий Шотландский Эль (Wee Heavy)</li>
+                  </ul>
+                </li>
+                <li>Старые Эли (Old Ales)</li>
+              </ul>
+            </li>
+            <li class="expandable-item">Пшеничные Эли <span class="arrow">→</span>
+              <ul class="sub-styles">
+                <li class="expandable-item">Вайцен (Weizen - немецкое пшеничное) <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Хефевайцен (Hefeweizen - дрожжевое)</li>
+                    <li>Кристаллвайцен (Kristallweizen - фильтрованное)</li>
+                  </ul>
+                </li>
+                <li>Витбир (Witbier - бельгийское пшеничное)</li>
+                <li>Вайсбирбок (Weizenbock - крепкое пшеничное)</li>
+                <li>Американский Пшеничный Эль</li>
+              </ul>
+            </li>
+            <li class="expandable-item">Бельгийские Эли (кроме светлых) <span class="arrow">→</span>
+              <ul class="sub-styles">
+                <li>Дуббель (Dubbel)</li>
+                <li>Трипель (Tripel)</li>
+                <li>Квадрюпель (Quadrupel)</li>
+                <li>Сезон (Saison)</li>
+                <li>Фландрийский Красный Эль</li>
+              </ul>
+            </li>
+            <li class="expandable-item">Кислые Эли <span class="arrow">→</span>
+              <ul class="sub-styles">
+                <li>Берлинер Вайссе (Berliner Weisse)</li>
+                <li>Гозе (Gose)</li>
+                <li class="expandable-item">Ламбик <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Некупажированный Ламбик (Unblended Lambic)</li>
+                    <li>Гёз (Gueuze)</li>
+                    <li>Крик (Kriek - с вишней)</li>
+                    <li>Фрамбуаз (Framboise - с малиной)</li>
+                  </ul>
+                </li>
+                <li>Фландрийский Коричневый Эль (Oud Bruin)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="expandable-item">Лагеры (Низовое брожение) <span class="arrow">→</span>
+          <ul class="sub-styles">
+            <li class="expandable-item">Светлые Лагеры <span class="arrow">→</span>
+              <ul class="sub-styles">
+                <li class="expandable-item">Пилснер (Pilsner) <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Немецкий Пилснер</li>
+                    <li>Чешский Пилснер</li>
+                    <li>Американский Пилснер</li>
+                  </ul>
+                </li>
+                <li>Хеллес (Helles)</li>
+                <li>Светлый Евролагер (Pale Lager)</li>
+                <li>Американский Лайт Лагер (American Light Lager)</li>
+                <li>Мэрцен/Октоберфест (Märzen/Oktoberfest)</li>
+              </ul>
+            </li>
+            <li class="expandable-item">Темные Лагеры <span class="arrow">→</span>
+              <ul class="sub-styles">
+                <li>Дункель (Dunkel)</li>
+                <li>Шварцбир (Schwarzbier)</li>
+                <li class="expandable-item">Бок (Bock) <span class="arrow">→</span>
+                  <ul class="sub-styles">
+                    <li>Традиционный Бок</li>
+                    <li>Доппельбок (Doppelbock)</li>
+                    <li>Тройной Бок (Tripelbock)</li>
+                    <li>Айсбок (Eisbock)</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="expandable-item">Янтарные Лагеры <span class="arrow">→</span>
+              <ul class="sub-styles">
+                <li>Венский Лагер (Vienna Lager)</li>
+                <li>Амбер Лагер (American Amber Lager)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li>Belgian Ale</li>
   </ul>
-</li>
-
+</div>
+<script src="script.js"></script>
+</body>
+</html>
