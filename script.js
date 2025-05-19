@@ -1,48 +1,35 @@
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded сработал (универсальная версия)');
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded сработал');
 
-    const categoryHeaders = document.querySelectorAll('.expandable-header');
-    console.log('Найдено заголовков категорий:', categoryHeaders.length);
+    function toggleOpen(element) {
+        element.classList.toggle('open');
+        console.log('Состояние элемента (open):', element.classList.contains('open'));
+    }
 
-    categoryHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            console.log('Клик/касание заголовка:', this.textContent);
-            const stylesList = this.nextElementSibling;
-            console.log('Следующий элемент после заголовка:', stylesList);
+    // Обработка заголовков категорий
+    document.querySelectorAll('.expandable-header').forEach(header => {
+        header.addEventListener('pointerdown', () => {
+            const stylesList = header.nextElementSibling;
             if (stylesList && stylesList.classList.contains('styles')) {
-                stylesList.style.display = stylesList.style.display === 'none' ? 'block' : 'none';
-                console.log('Состояние списка стилей:', stylesList.style.display);
+                toggleOpen(stylesList);
             }
-        });
-        header.addEventListener('touchstart', function() {
-            // Используем тот же обработчик, что и для click
-            this.click();
         });
     });
 
-    const expandableItems = document.querySelectorAll('.expandable-item');
-    console.log('Найдено раскрываемых элементов:', expandableItems.length);
-
-    expandableItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-            console.log('Клик/касание раскрываемого элемента:', this.textContent);
-            const subStyles = this.querySelector('.sub-styles');
-            console.log('Найденный подстиль:', subStyles);
+    // Обработка вложенных стилей
+    document.querySelectorAll('.expandable-item').forEach(item => {
+        item.addEventListener('pointerdown', (event) => {
+            const subStyles = item.querySelector('.sub-styles');
             if (subStyles) {
-                subStyles.style.display = subStyles.style.display === 'none' ? 'block' : 'none';
-                console.log('Состояние подстилей:', subStyles.style.display);
+                toggleOpen(subStyles);
                 event.stopPropagation();
             }
         });
-        item.addEventListener('touchstart', function(event) {
-            // Используем тот же обработчик, что и для click
-            this.click();
-        });
     });
 
-    // Изначально раскрываем списки первого уровня (Эли и Лагеры)
+    // Изначально раскрываем все списки первого уровня
     document.querySelectorAll('.category > .styles').forEach(ul => {
-        ul.style.display = 'block';
+        ul.classList.add('open');
         console.log('Изначально раскрыт список:', ul);
     });
 });
