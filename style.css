@@ -22,24 +22,18 @@ h1 {
 
 .expandable-item {
   cursor: pointer;
-  padding: 5px;
+  padding: 5px 10px;
   background: #e2f0ff;
   margin: 3px 0;
   border-radius: 4px;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.expandable-item::before {
-  content: '►';
-  position: absolute;
-  left: -15px;
-  top: 50%;
-  transform: translateY(-50%);
+.arrow {
+  font-size: 14px;
   transition: transform 0.2s ease;
-}
-
-.expandable-item.open::before {
-  content: '▼';
 }
 
 .sub-styles {
@@ -50,4 +44,5 @@ h1 {
 .sub-styles.open {
   display: block;
 }
+
 
