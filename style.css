@@ -1,48 +1,35 @@
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background: #f8f8f8;
+/* Reset default list style */
+ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-.container {
-  max-width: 700px;
-  margin: auto;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.beer-tree, .sub-styles {
-  list-style-type: none;
-  padding-left: 20px;
-  margin: 0;
-}
-
-.expandable-item {
+/* Base styles for list items */
+li {
   cursor: pointer;
-  padding: 5px 10px;
-  background: #e2f0ff;
-  margin: 3px 0;
-  border-radius: 4px;
+  margin: 5px 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-.arrow {
-  font-size: 14px;
+/* Indentation for nested levels */
+ul ul {
+  margin-left: 20px;
+}
+
+/* Arrow styling */
+.toggle::after {
+  content: "→";
+  margin-left: 8px;
   transition: transform 0.2s ease;
 }
 
-.sub-styles {
+/* Expanded arrow */
+.toggle.expanded::after {
+  content: "↓";
+}
+
+/* Initially hide sublists */
+.hidden {
   display: none;
-  padding-left: 20px;
 }
-
-.sub-styles.open {
-  display: block;
-}
-
-
