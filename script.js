@@ -1,35 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded сработал');
-
-    function toggleOpen(element) {
-        element.classList.toggle('open');
-        console.log('Состояние элемента (open):', element.classList.contains('open'));
-    }
-
-    // Заголовки категорий
-    document.querySelectorAll('.expandable-header').forEach(header => {
-        header.addEventListener('pointerdown', () => {
-            const stylesList = header.nextElementSibling;
-            if (stylesList && stylesList.classList.contains('styles')) {
-                toggleOpen(stylesList);
-            }
-        });
-    });
-
-    // Подстили
     document.querySelectorAll('.expandable-item').forEach(item => {
-        item.addEventListener('pointerdown', (event) => {
-            const subStyles = item.querySelector('.sub-styles');
-            if (subStyles) {
-                toggleOpen(subStyles);
-                event.stopPropagation();
+        item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const subList = item.querySelector(':scope > .sub-styles');
+            if (subList) {
+                subList.classList.toggle('open');
             }
         });
-    });
-
-    // Раскрываем основные категории по умолчанию
-    document.querySelectorAll('.category > .styles').forEach(ul => {
-        ul.classList.add('open');
-        console.log('Изначально раскрыт список:', ul);
     });
 });
