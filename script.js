@@ -1,14 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.expandable-item').forEach(item => {
-        const subList = item.querySelector(':scope > .sub-styles');
-        const arrow = item.querySelector('.arrow');
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggles = document.querySelectorAll(".toggle");
 
-        if (subList && arrow) {
-            item.addEventListener('click', (e) => {
-                e.stopPropagation();
-                subList.classList.toggle('open');
-                arrow.textContent = subList.classList.contains('open') ? '↓' : '→';
-            });
+    toggles.forEach(toggle => {
+      toggle.addEventListener("click", function () {
+        const sublist = this.nextElementSibling;
+        if (sublist && sublist.tagName === "UL") {
+          sublist.classList.toggle("hidden");
+          this.classList.toggle("expanded");
         }
+      });
     });
-});
+  });
+</script>
